@@ -1,6 +1,6 @@
  
 FROM centos:7
-MAINTAINER Denis Kolodin <deniskolodin@gmail.com>
+MAINTAINER Jacob Zwang <zwang.jacob@gmail.com>
 
 EXPOSE 3012
 
