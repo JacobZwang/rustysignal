@@ -10,7 +10,7 @@ RUN yum update -y
 RUN yum install -y file gcc openssl-devel
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
-RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
+RUN source $HOME/.cargo/env
 
 WORKDIR $SOURCES
 RUN cargo install rustysignal
