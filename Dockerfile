@@ -8,10 +8,9 @@ ENV SOURCES=/sources
 
 RUN yum update -y
 RUN yum install -y file gcc openssl-devel
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
-RUN mkdir -p $SOURCES
-ADD ./ $SOURCES
+RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 
 WORKDIR $SOURCES
 RUN cargo install rustysignal
