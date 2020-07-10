@@ -1,18 +1,8 @@
- 
-FROM centos:7
-MAINTAINER Jacob Zwang <zwang.jacob@gmail.com>
+FROM rust:1.31
 
-EXPOSE 3012
+WORKDIR /usr/src/myapp
+COPY . .
 
-ENV SOURCES=/sources
-
-RUN yum update -y
-RUN yum install -y file gcc openssl-devel
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-
-RUN source $HOME/.cargo/env
-
-WORKDIR $SOURCES
 RUN cargo install rustysignal
 
-CMD cargo rustysignal 127.0.0.1:3012
+CMD rustysignal 127.0.0.1:30012
